@@ -1,0 +1,103 @@
+<div class="d-flex flex-row bd-highlight mb-3">
+    <div class="form-group row" style="width: 100%; margin-left:8px; margin-right:1px">
+        <!-- This put the "id" in the input field and disables it if the
+      "dbPredictionData.id" passed from show-prediction.component.html file is not
+      equal to zero -->
+        <div class="mb-3 form-group" *ngIf="dbPredictionData.id != 0">
+            <label for="id" class="form-label">Id</label>
+            <input type="text" class="form-control" name="id" [(ngModel)]="id" *ngIf="dbPredictionData.id != 0" disabled>
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="gender" class="form-label">Gender:</label>
+            <select class="form-control" name="gender" id="gender" [(ngModel)]="gender">
+              <option value="1">Male</option>
+              <option value="0">Female</option>
+            </select>
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="age" class="form-label">Age:</label>
+            <input type="text" class="form-control" name="age" [(ngModel)]="age">
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="married" class="form-label">Married:</label>
+            <select class="form-control" name="married" id="married" [(ngModel)]="married">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="education" class="form-label">Education:</label>
+            <select class="form-control" name="education" id="education" [(ngModel)]="education">
+                <option value="0">Graduate</option>
+                <option value="1">Non Graduate</option>
+            </select>
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="selfEmploy" class="form-label">Self Employed:</label>
+            <select class="form-control" name="selfEmploy" id="selfEmploy" [(ngModel)]="selfEmploy">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="applicantIncome" class="form-label">Applicant Monthly Income:</label>
+            <input type="text" class="form-control" name="applicantIncome" [(ngModel)]="applicantIncome">
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="coapplicantIncome" class="form-label">Coapplicant Monthly Income:</label>
+            <input type="text" class="form-control" name="coapplicantIncome" [(ngModel)]="coapplicantIncome">
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="businessName" class="form-label">Business Name:</label>
+            <input type="text" class="form-control" name="businessName" [(ngModel)]="businessName">
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="yearsOfEstablishment" class="form-label">Years of Business Establishment:</label>
+            <select class="form-control" name="yearsOfEstablishment" id="yearsOfEstablishment" [(ngModel)]="yearsOfEstablishment">
+              <option value="0">Less than a year</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three and above</option>
+            </select>
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="investmentAmount" class="form-label">Required Loan Amount:</label>
+            <input type="text" class="form-control" name="investmentAmount" [(ngModel)]="investmentAmount">
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="investmentDuration" class="form-label">Loan Duration (Number of Days):</label>
+            <input type="text" class="form-control" name="investmentDuration" [(ngModel)]="investmentDuration">
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="creditHistory" class="form-label">Credit History:</label>
+            <select class="form-control" name="creditHistory" id="creditHistory" [(ngModel)]="creditHistory">
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+          </select>
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="agroplantLocation" class="form-label">Business Location:</label>
+            <select class="form-control" name="agroplantLocation" id="agroplantLocation" [(ngModel)]="agroplantLocation">
+              <option value="0">Rural</option>
+              <option value="1">Semiurban</option>
+              <option value="2">Urban</option>
+          </select>
+        </div>
+    </div>
+</div>
+
+<button style="margin-left:20px" (click)="addPrediction()" class="btn btn-primary" *ngIf="dbPredictionData.id!=0">Predict</button>
+<button style="margin-left:20px" (click)="testPrediction()" class="btn btn-primary" *ngIf="dbPredictionData.id==0">Predict Test</button>

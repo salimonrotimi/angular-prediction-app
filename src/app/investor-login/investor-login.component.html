@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div class="card-container">
+    <div class="card">
+        <form [formGroup]="myform">
+            <h1>Investor Login</h1>
+            <!-- the "floatLabel" attribute can be set to "auto", "always" or "never". It is set
+      to "auto" by default even when the "floatLabel" attribute is not specified -->
+            <!-- the "appearance" attribute can be set to "legacy", "standard", "fill" or "outline" -->
+
+            <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline">
+                <mat-label>Investor Email:</mat-label>
+                <input type="email" formControlName="investoremail" matInput required>
+                <mat-error *ngIf="myform.get('investoremail')!.getError('required') != null">Email cannot be empty</mat-error>
+            </mat-form-field>
+
+            <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline">
+                <mat-label>Password:</mat-label>
+                <input type="password" formControlName="password" matInput required>
+                <mat-error *ngIf="myform.get('password')!.getError('required') != null">Password is required</mat-error>
+                <mat-hint align="start"><a routerLink="/index" style="text-decoration:none; font-size:14px; color:blue">Login as User</a></mat-hint>
+                <mat-hint align="end"><a routerLink="/forgotinvestorpassword" style="text-decoration:none; color:blue; font-size:14px;">Forgot Password?</a></mat-hint>
+            </mat-form-field>
+
+            <button [disabled]="myform.invalid" (click)="onSubmit()" style="background-color: #c5e6f5; margin-top:15px" mat-button matTooltip="Sign in" matTooltipPosition="after" matTooltipShowDelay="1200" matTooltipHideDelay="800">
+            Sign In <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+          </button><br>
+
+            <mat-hint align="end" style="font-size: 14px; text-align:center;">Don't have an account? <a routerLink="/investorregister" style="text-decoration:none; color:blue">Register as Investor</a></mat-hint>
+        </form>
+    </div>
+</div>
+<app-image-slides [images]="slideImages" [autoSlide]="true" [slideInterval]="2000"></app-image-slides>
+<app-footer></app-footer>

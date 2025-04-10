@@ -1,0 +1,7 @@
+.pchart {
+    display: flex;
+    width: 70%;
+    float: left;
+    gap: 5px;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,29 @@
+footer {
+    position: sticky;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+footer div {
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+
+.copyright {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+@media screen and (max-height: 425px) and (min-aspect-ratio: 7/4) {
+    footer {
+        visibility: hidden;
+    }
+}

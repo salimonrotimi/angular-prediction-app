@@ -1,0 +1,88 @@
+<app-home-nav></app-home-nav>
+<div class="navbar" style="height: auto">
+    <!--Material toolbar declaration-->
+    <mat-toolbar>
+        <label mat-icon-button>
+          <mat-icon class="menu" (click)="sidenav.toggle()">menu</mat-icon>
+        </label>
+
+        <div class="icons">
+            <label mat-icon-button>
+                <mat-icon [matBadge]="notification" [matBadgeHidden]="notification == 0" matBadgePosition="above after" matBadgeSize="medium" matBadgeColor="accent" matBadgeOverlap="true">notifications</mat-icon>
+              </label>
+            <label>
+              <input type="search" matInput mat-icon-button><mat-icon class="search">search</mat-icon>
+          </label>
+        </div>
+    </mat-toolbar>
+</div>
+
+<div>
+    <!--Material sidenav-container, sidenav and sidenav-content declaration-->
+    <!-- the sidenav mode can be "over" (i.e. the default), "push" and "side" -->
+    <mat-sidenav-container>
+        <mat-sidenav mode="side" [(opened)]="opened" #sidenav>
+            <mat-nav-list>
+                <ul>
+                    <li>
+                        <mat-icon>dashboard</mat-icon><span mat-list-item>Dashboard</span>
+                        <div class="submenu">
+                            <ul>
+                                <li>
+                                    <a mat-list-item routerLink="/agro-dashboard">Agro-Processor</a>
+                                </li>
+                                <li>
+                                    <a mat-list-item routerLink="/investor-dashboard">Investor</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <a mat-list-item routerLink="/home">
+                    <mat-icon>home</mat-icon>Home</a>
+                <a mat-list-item routerLink="/apply">
+                    <mat-icon>approval delegation</mat-icon>Apply</a>
+                <a mat-list-item routerLink="/show-prediction">
+                    <mat-icon>lightbulb</mat-icon>Predictions</a>
+                <a mat-list-item (click)="logout()">
+                    <mat-icon>logout</mat-icon>Logout</a>
+            </mat-nav-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <div class="container">
+                <div class="row">
+                    <div class="column">
+                        <div class="card">
+                            <h3>Number of Investors</h3>
+                            <p>{{this.investorServerMessage ? this.investorServerMessage : 0}}</p>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="card">
+                            <h3>Total Amount Invested</h3>
+                            <p>&#8358;{{this.amountServerMessage ? this.amountServerMessage : 0}}</p>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="card">
+                            <h3>Highest Amount Invested</h3>
+                            <p>&#8358;{{this.highestAmountServerMessage ? this.highestAmountServerMessage : 0}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="big-container">
+                <div class="big-row">
+                    <app-investor-barchart></app-investor-barchart>
+                    <app-doughnut-pie-chart></app-doughnut-pie-chart>
+                </div>
+            </div>
+
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+
+</div>

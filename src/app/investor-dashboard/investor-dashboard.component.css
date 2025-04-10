@@ -1,0 +1,211 @@
+* {
+    color: #919191;
+    box-sizing: border-box;
+}
+
+h3 {
+    color: rgb(82, 166, 251);
+    font-weight: 900;
+    font-size: large;
+}
+
+p {
+    color: blue;
+    font-weight: 900;
+    font-size: x-large;
+}
+
+.navbar {
+    margin: 3px;
+    max-width: 100%;
+}
+
+.navbar mat-toolbar .icons {
+    display: block;
+    color: white;
+    font-size: 17px;
+    margin-left: 70%;
+}
+
+.navbar mat-toolbar .icons label {
+    padding: 7px 10%;
+    margin-top: 7px;
+}
+
+mat-icon {
+    color: #4d4c4c;
+}
+
+mat-sidenav-container {
+    height: 100%;
+}
+
+mat-sidenav {
+    width: 20%;
+    padding: 5px;
+    background-color: rgb(76, 172, 250);
+}
+
+
+/*Stylisg of Dashboard Submenu*/
+
+mat-nav-list ul {
+    margin: 18px;
+    padding: 0;
+}
+
+mat-nav-list span {
+    font-size: 16px;
+    color: black;
+}
+
+mat-nav-list ul li {
+    list-style: none;
+}
+
+.submenu {
+    display: none;
+    font-size: 16px;
+    color: black;
+    line-height: 40px;
+}
+
+mat-nav-list ul li:hover .submenu {
+    display: block;
+    margin-left: 30px;
+}
+
+mat-nav-list ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+mat-nav-list ul li a:hover {
+    background: rgb(95, 180, 249);
+    transition: 0.5s;
+}
+
+mat-sidenav-content {
+    padding: 2px;
+}
+
+.container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.big-container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: 400px;
+    width: 100%;
+}
+
+
+/* This removes extra left and right margins due to padding in columns */
+
+.row {
+    margin: 0 -5px;
+}
+
+.big-row {
+    margin: 0 10%;
+    display: flex;
+    flex-direction: row;
+    height: 400px;
+    width: 100%;
+}
+
+app-investor-barchart {
+    width: 45%;
+    margin-right: 5%;
+}
+
+app-doughnut-pie-chart {
+    width: 40%;
+    margin-right: 10%;
+}
+
+
+/* This clears floats after all the columns*/
+
+.row::after {
+    display: table;
+    clear: both;
+}
+
+
+/* This floats four columns side by side*/
+
+.column {
+    float: left;
+    width: 33%;
+    padding: 5px 10px;
+}
+
+
+/* This styles the cards*/
+
+.card {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(56, 56, 56, 0.2);
+    padding: 16px;
+    text-align: center;
+    height: max-content;
+    background-color: #fff;
+    align-content: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 950px) {
+    mat-sidenav {
+        width: 40%;
+    }
+    .navbar {
+        margin: 3px;
+        width: 100%;
+    }
+    .navbar mat-toolbar .icons {
+        display: inline-block;
+        margin-left: 46%;
+    }
+    .navbar mat-toolbar .icons label {
+        padding: 7px 5%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    mat-sidenav {
+        width: 30%;
+    }
+    .navbar {
+        margin: 3px;
+        width: 100%;
+    }
+    .navbar mat-toolbar .icons {
+        display: inline-block;
+        margin-left: 32%;
+    }
+    .navbar mat-toolbar .icons label {
+        padding: 7px 4%;
+    }
+    .container,
+    .big-container {
+        width: 100%;
+        height: 100%;
+        display: block;
+        float: left;
+        clear: right;
+    }
+    .column,
+    .big-row {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+    app-investor-barchart,
+    app-doughnut-pie-chart {
+        width: 100%;
+    }
+}

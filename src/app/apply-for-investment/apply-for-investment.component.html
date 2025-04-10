@@ -1,0 +1,124 @@
+<app-home-nav></app-home-nav>
+<div class="card-container">
+    <div class="card">
+        <form [formGroup]="myform">
+            <h1>Apply for Loan</h1>
+            <h3 style="font-size:20px">Available Amount: &nbsp;&nbsp;<span style="color: green; font-weight:900; float:right;">&#8358;{{this.serverMessage ? this.serverMessage : 0}}</span></h3>
+            <!-- the "floatLabel" attribute can be set to "auto", "always" or "never". It is set
+        to "auto" by default even when the "floatLabel" attribute is not specified -->
+            <!-- the "appearance" attribute can be set to "legacy", "standard", "fill" or "outline" -->
+            <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline">
+                <mat-label>Gender:</mat-label>
+                <mat-select formControlName="gender" required>
+                    <mat-option value="1">Male</mat-option>
+                    <mat-option value="0">Female</mat-option>
+                </mat-select>
+                <mat-error *ngIf="myform.get('gender')!.getError('required') != null">Gender is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline">
+                <mat-label>Age:</mat-label>
+                <input type="text" formControlName="age" matInput required>
+                <mat-error *ngIf="myform.get('age')!.getError('required') != null">Age cannot be empty</mat-error>
+            </mat-form-field>
+
+            <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline">
+                <mat-label>Married:</mat-label>
+                <mat-select formControlName="married" required>
+                    <mat-option value="1">Yes</mat-option>
+                    <mat-option value="0">No</mat-option>
+                </mat-select>
+                <mat-error *ngIf="myform.get('married')!.getError('required') != null">Married is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline">
+                <mat-label>Education:</mat-label>
+                <mat-select formControlName="education" required>
+                    <mat-option value="0">Graduate</mat-option>
+                    <mat-option value="1">Non Graduate</mat-option>
+                </mat-select>
+                <mat-error *ngIf="myform.get('education')!.getError('required') != null">Education is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline">
+                <mat-label>Self Employed:</mat-label>
+                <mat-select formControlName="selfEmploy" required>
+                    <mat-option value="1">Yes</mat-option>
+                    <mat-option value="0">No</mat-option>
+                </mat-select>
+                <mat-error *ngIf="myform.get('selfEmploy')!.getError('required') != null">Self Employed is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline">
+                <mat-label>Applicant Monthly Income:</mat-label>
+                <input type="text" formControlName="applicantIncome" matInput required>
+                <mat-error *ngIf="myform.get('applicantIncome')!.getError('required') != null">Applicant Monthly Income cannot be empty</mat-error>
+            </mat-form-field>
+
+            <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline">
+                <mat-label>Coapplicant Monthly Income:</mat-label>
+                <input type="text" formControlName="coapplicantIncome" matInput required>
+                <mat-error *ngIf="myform.get('coapplicantIncome')!.getError('required') != null">Coapplicant Monthly Income cannot be empty</mat-error>
+            </mat-form-field>
+
+            <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline">
+                <mat-label>Business Name:</mat-label>
+                <input type="text" formControlName="businessname" matInput required>
+                <mat-error *ngIf="myform.get('businessname')!.getError('required') != null">Business Name cannot be empty</mat-error>
+            </mat-form-field>
+
+            <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline">
+                <mat-label>Years of Business Establishment</mat-label>
+                <mat-select formControlName="yearsOfEstablishment" required>
+                    <mat-option value="0">Less than a year</mat-option>
+                    <mat-option value="1">One</mat-option>
+                    <mat-option value="2">Two</mat-option>
+                    <mat-option value="3">Three and above</mat-option>
+                </mat-select>
+                <mat-error *ngIf="myform.get('yearsOfEstablishment')!.getError('required') != null">Years of Business Establishment is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline">
+                <mat-label>Required Loan Amount:</mat-label>
+                <input type="text" formControlName="investmentAmount" matInput required>
+                <mat-error *ngIf="myform.get('investmentAmount')!.getError('required') != null">Required Investment Amount cannot be empty</mat-error>
+            </mat-form-field>
+
+            <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline">
+                <mat-label>Loan Duration (Number of Days):</mat-label>
+                <input type="text" formControlName="investmentDuration" matInput required>
+                <mat-error *ngIf="myform.get('investmentDuration')!.getError('required') != null">Investment Duration is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline">
+                <mat-label>Credit History:</mat-label>
+                <mat-select formControlName="creditHistory" required>
+                    <mat-option value="1">Yes</mat-option>
+                    <mat-option value="0">No</mat-option>
+                </mat-select>
+                <mat-error *ngIf="myform.get('creditHistory')!.getError('required') != null">Credit History is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline">
+                <mat-label>Business Location:</mat-label>
+                <mat-select formControlName="agroplantLocation" required>
+                    <mat-option value="0">Rural</mat-option>
+                    <mat-option value="1">Semiurban</mat-option>
+                    <mat-option value="2">Urban</mat-option>
+                </mat-select>
+                <mat-error *ngIf="myform.get('agroplantLocation')!.getError('required') != null">Agroplant Location is required</mat-error>
+            </mat-form-field>
+
+            <div>
+                <button [disabled]="myform.invalid" (click)="refresh()" style="background-color: #c5e6f5; margin-top:15px" mat-button matTooltip="Refresh" matTooltipPosition="after" matTooltipShowDelay="1200" matTooltipHideDelay="800">
+            Refresh <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+          </button> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+                <button [disabled]="myform.invalid" (click)="onSubmit()" style="background-color: #c5e6f5; margin-top:15px" mat-button matTooltip="Submit" matTooltipPosition="after" matTooltipShowDelay="1200" matTooltipHideDelay="800">
+            Submit <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+          </button>
+            </div>
+            <br>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+.header {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.buttons {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    margin: 0;
+}
+
+thead,
+tbody {
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+h1 {
+    font-weight: 900;
+    font-size: x-large;
+}
+
+
+/* The following styles is used for the [ngClass] structural directive*/
+
+.mygreen {
+    color: green;
+    font-weight: 900;
+}
+
+.myred {
+    color: red;
+    font-weight: 900;
+}
+
+@media screen and (min-width: 576px) {
+    thead,
+    tbody {
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (min-width: 726px) {
+    thead,
+    tbody {
+        font-size: 1.25rem;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    thead,
+    tbody {
+        font-size: 1.3rem;
+    }
+    h1 {
+        font-size: xx-large;
+    }
+}

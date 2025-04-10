@@ -1,0 +1,71 @@
+<app-header></app-header>
+<div class="card-container">
+    <div class="card">
+        <form [formGroup]="myform">
+            <h1>Create Investor Account</h1>
+            <!-- the "floatLabel" attribute can be set to "auto", "always" or "never". It is set
+        to "auto" by default even when the "floatLabel" attribute is not specified -->
+            <!-- the "appearance" attribute can be set to "legacy", "standard", "fill" or "outline" -->
+            <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline">
+                <mat-label>Business Name:</mat-label>
+                <input formControlName="businessname" matInput required>
+                <mat-hint align="end">Min 2 characters</mat-hint>
+                <mat-error *ngIf="myform.get('businessname')!.getError('required') != null">Business Name is required</mat-error>
+                <mat-error *ngIf="myform.dirty && myform.get('businessname')!.value.length<2">Business Name cannot be less than 2 characters</mat-error>
+            </mat-form-field>
+
+            <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline">
+                <mat-label>Address:</mat-label>
+                <input formControlName="address" matInput required>
+                <mat-error *ngIf="myform.get('address')!.getError('required') != null">Address is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline">
+                <mat-label>Country:</mat-label>
+                <input type="text" formControlName="country" matInput [matAutocomplete]="autoNations">
+                <mat-autocomplete #autoNations>
+                    <mat-option *ngFor="let nation of filteredNations|async" [value]="nation">{{nation}}</mat-option>
+                </mat-autocomplete>
+                <mat-error *ngIf="myform.get('country')!.getError('required') != null">Country is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline">
+                <mat-label>Email:</mat-label>
+                <input type="email" formControlName="investoremail" matInput required>
+                <mat-error *ngIf="myform.get('investoremail')!.getError('required') != null">Email is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline">
+                <mat-label>Password:</mat-label>
+                <input type="password" formControlName="password" matInput required>
+                <mat-error *ngIf="myform.get('password')!.getError('required') != null">Password is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline">
+                <mat-label>Confirm Password:</mat-label>
+                <input type="password" formControlName="confpassword" matInput required>
+                <mat-error *ngIf="myform.get('confpassword')!.getError('required') != null">Confirm Password is required</mat-error>
+                <mat-error *ngIf="myform.get('confpassword')!.getError('mustmatch') != null">Password not match</mat-error>
+            </mat-form-field>
+
+            <mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline">
+                <mat-label>Amount to Invest:</mat-label>
+                <input formControlName="amountinvested" matInput required>
+                <mat-error *ngIf="myform.get('amountinvested')!.getError('required') != null">Amount to Invest is required</mat-error>
+            </mat-form-field>
+
+            <mat-checkbox formControlName="checkbx" color="primary" labelPosition="after" style="font-size: 14px;" required>
+                I Agree to <a routerLink="/t&c" style="text-decoration:none; color:blue">Terms and Conditions.</a>
+            </mat-checkbox>
+
+            <button [disabled]="myform.invalid" (click)="onSubmit()" style="background-color: #c5e6f5; margin-top:15px;" mat-button matTooltip="Sign up" matTooltipPosition="after" matTooltipShowDelay="1200" matTooltipHideDelay="800">
+              Sign Up <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button><br>
+            <p>
+                <mat-hint align="end"><a routerLink="/register" style="text-decoration:none; font-size:14px; margin-bottom:50px; color:blue">Register as Applicant</a></mat-hint>
+            </p>
+            <mat-hint align="end" style="font-size: 14px">Already have an account? <a routerLink="/investorlogin" style="text-decoration:none; color:blue">Login.</a></mat-hint>
+        </form>
+    </div>
+</div>
+<app-footer></app-footer>
